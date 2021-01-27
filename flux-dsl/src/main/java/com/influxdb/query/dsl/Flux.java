@@ -41,6 +41,7 @@ import com.influxdb.query.dsl.functions.DistinctFlux;
 import com.influxdb.query.dsl.functions.DropFlux;
 import com.influxdb.query.dsl.functions.DuplicateFlux;
 import com.influxdb.query.dsl.functions.ExpressionFlux;
+import com.influxdb.query.dsl.functions.FillFlux;
 import com.influxdb.query.dsl.functions.FilterFlux;
 import com.influxdb.query.dsl.functions.FirstFlux;
 import com.influxdb.query.dsl.functions.FromFlux;
@@ -98,6 +99,7 @@ import com.influxdb.query.dsl.functions.restriction.Restrictions;
  * <li>{@link DistinctFlux}</li>
  * <li>{@link DropFlux}</li>
  * <li>{@link DuplicateFlux}</li>
+ * <li>{@link FillFlux}</li>
  * <li>{@link FilterFlux}</li>
  * <li>{@link FirstFlux}</li>
  * <li>{@link GroupFlux}</li>
@@ -758,6 +760,16 @@ public abstract class Flux {
     @Nonnull
     public final DuplicateFlux duplicate(@Nonnull final String column, @Nonnull final String as) {
         return new DuplicateFlux(this).withColumn(column).withAs(as);
+    }	
+
+    /**
+     * Replace null values.
+     *
+     * @return {@link FillFlux}
+     */
+    @Nonnull
+    public final FillFlux fill() {
+        return new FillFlux(this);
     }
 
     /**
