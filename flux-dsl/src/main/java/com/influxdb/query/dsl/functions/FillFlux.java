@@ -47,7 +47,7 @@ import java.time.temporal.ChronoUnit;
  *      .withUsePrevious(true);
  * </pre>
  *
- * @author Szymon Kliniewski (NoneTirex@github) (27/01/2020 18:55)
+ * @author Szymon Kliniewski (NoneTirex@github) (27/01/2021 18:55)
  */
 public final class FillFlux extends AbstractParametrizedFlux {
     public FillFlux(@Nonnull final Flux source) {
